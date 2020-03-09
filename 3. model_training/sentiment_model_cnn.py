@@ -77,9 +77,10 @@ def keras_model_fn(_, config):
 
 
     # 2-layer lSTM
-    model.add(tf.keras.layers.LSTM(64, return_sequences=True))
+    model.add(tf.keras.layers.SpatialDropout1D(0.5))
+    model.add(tf.keras.layers.LSTM(32, return_sequences=True))
     model.add(tf.keras.layers.Dropout(0.5))
-    model.add(tf.keras.layers.LSTM(32))
+    model.add(tf.keras.layers.LSTM(16))
     model.add(tf.keras.layers.Dropout(0.5))
     model.add(tf.keras.layers.Dense(8, activation='relu'))
     model.add(tf.keras.layers.Dropout(0.5))
@@ -88,7 +89,7 @@ def keras_model_fn(_, config):
 
 
 
-    # GRU
+    # # GRU
     # model.add(tf.keras.layers.GRU(32))
     # model.add(tf.keras.layers.Dense(24, activation='relu'))
 
@@ -114,12 +115,15 @@ def keras_model_fn(_, config):
 
 
 
-    # Standard Multi Conv Layer
-    # model.add(tf.keras.layers.Conv1D(64, kernel_size=2, strides=1, activation='relu'))
+    # # Standard Multi Conv Layer
+    # model.add(tf.keras.layers.Conv1D(64, kernel_size=3, strides=1, activation='relu'))
     # model.add(tf.keras.layers.Dropout(0.5))
     # model.add(tf.keras.layers.GlobalMaxPool1D())
     # model.add(tf.keras.layers.Dropout(0.5))
-    # model.add(tf.keras.layers.Dropout(0.5))
+    # # model.add(tf.keras.layers.Conv1D(64, kernel_size=2, strides=1, activation='relu'))
+    # # model.add(tf.keras.layers.Dropout(0.5))
+    # # model.add(tf.keras.layers.GlobalMaxPool1D())
+    # # model.add(tf.keras.layers.Dropout(0.5))
     # model.add(tf.keras.layers.Dense(100, activation='relu'))
     # model.add(tf.keras.layers.Dropout(0.5))
     # model.add(tf.keras.layers.Dense(1, activation='sigmoid'))

@@ -2,7 +2,7 @@
     "embeddings_dictionary_size": 124688,
     "embeddings_vector_size": 25,
     "padding_size": 30,
-    "batch_size": 100,
+    "batch_size": 2048,
     "embeddings_path": "dict/glove_vector.txt",
     "input_tensor_name": "features_input",
     "embedding_layer_name": "features",
