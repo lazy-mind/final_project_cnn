@@ -53,13 +53,14 @@ def keras_model_fn(_, config):
                         trainable=True))
 
 
-    # model.add(tf.keras.layers.SpatialDropout1D(0.4))
-    # model.add(tf.keras.layers.Bidirectional(tf.keras.layers.LSTM(64, return_sequences=True)))
-    # model.add(tf.keras.layers.Bidirectional(tf.keras.layers.LSTM(32)))
-
-    # model.add(tf.keras.layers.Dense(64, activation='relu'))
-    # model.add(tf.keras.layers.Dropout(0.5))
-    # model.add(tf.keras.layers.Dense(1))
+    model.add(tf.keras.layers.SpatialDropout1D(0.6))
+    model.add(tf.keras.layers.Bidirectional(tf.keras.layers.LSTM(64, return_sequences=True)))
+    model.add(tf.keras.layers.Dropout(0.5))
+    model.add(tf.keras.layers.Bidirectional(tf.keras.layers.LSTM(32)))
+    model.add(tf.keras.layers.Dropout(0.5))
+    model.add(tf.keras.layers.Dense(256, activation='relu'))
+    model.add(tf.keras.layers.Dropout(0.5))
+    model.add(tf.keras.layers.Dense(1))
 
 
 
@@ -77,14 +78,14 @@ def keras_model_fn(_, config):
 
 
     # 2-layer lSTM
-    model.add(tf.keras.layers.SpatialDropout1D(0.5))
-    model.add(tf.keras.layers.LSTM(32, return_sequences=True))
-    model.add(tf.keras.layers.Dropout(0.5))
-    model.add(tf.keras.layers.LSTM(16))
-    model.add(tf.keras.layers.Dropout(0.5))
-    model.add(tf.keras.layers.Dense(8, activation='relu'))
-    model.add(tf.keras.layers.Dropout(0.5))
-    model.add(tf.keras.layers.Dense(1, activation='sigmoid'))
+    # model.add(tf.keras.layers.SpatialDropout1D(0.5))
+    # model.add(tf.keras.layers.LSTM(32, return_sequences=True))
+    # model.add(tf.keras.layers.Dropout(0.5))
+    # model.add(tf.keras.layers.LSTM(16))
+    # model.add(tf.keras.layers.Dropout(0.5))
+    # model.add(tf.keras.layers.Dense(8, activation='relu'))
+    # model.add(tf.keras.layers.Dropout(0.5))
+    # model.add(tf.keras.layers.Dense(1, activation='sigmoid'))
 
 
 
